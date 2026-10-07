@@ -132,7 +132,7 @@ def upload(slug: str) -> dict:
         raise RuntimeError(f"already uploaded as {state['youtube']['video_id']}")
     base = project_dir(slug)
     meta = read_json(slug, "publish.json")
-    lang = meta.get("defaultLanguage", "zh-Hans")
+    lang = meta.get("defaultLanguage", "en")
     body = {
         "snippet": {
             "title": meta["title"], "description": meta.get("description", ""), "tags": meta.get("tags", []),

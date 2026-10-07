@@ -17,7 +17,7 @@ TEMPLATES_DIR = ROOT / "templates"
 PEXELS_API_KEY = os.environ.get("PEXELS_API_KEY", "")
 PIXABAY_API_KEY = os.environ.get("PIXABAY_API_KEY", "")
 
-DEFAULT_VOICE = os.environ.get("DEFAULT_VOICE", "zh-CN-YunxiNeural")
+DEFAULT_VOICE = os.environ.get("DEFAULT_VOICE", "en-US-AndrewNeural")
 DEFAULT_RESOLUTION = tuple(int(x) for x in os.environ.get("DEFAULT_RESOLUTION", "1920x1080").split("x"))
 FPS = int(os.environ.get("FPS", "30"))
 

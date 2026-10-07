@@ -46,7 +46,7 @@ def generate_voiceover(slug: str, force: bool = False) -> list[dict]:
     return results
 
 
-def list_voices(locale_prefix: str = "zh-") -> list[dict]:
+def list_voices(locale_prefix: str = "en-US") -> list[dict]:
     voices = asyncio.run(edge_tts.list_voices())
     return [
         {"name": v["ShortName"], "gender": v["Gender"], "locale": v["Locale"],

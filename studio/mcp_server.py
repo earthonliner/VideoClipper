@@ -94,7 +94,7 @@ def music_list(mood: str = "") -> list[dict]:
 
 
 @server.tool()
-def voice_list(locale_prefix: str = "zh-") -> list[dict]:
+def voice_list(locale_prefix: str = "en-US") -> list[dict]:
     """List free Edge TTS voices for a locale prefix (zh-, en-US, ja-...)."""
     return voice.list_voices(locale_prefix)
 
