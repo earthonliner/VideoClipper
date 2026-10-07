@@ -88,8 +88,11 @@ def split_long_cues(cues: list[Cue], max_chars: int = 18) -> list[Cue]:
                 if buf:
                     parts.append(buf)
                     buf = ""
-                parts.append(piece[:max_chars])
-                piece = piece[max_chars:]
+                cut = piece.rfind(" ", 1, max_chars + 1)
+                if cut <= 0:
+                    cut = max_chars
+                parts.append(piece[:cut])
+                piece = piece[cut:]
             if len(buf) + len(piece) > max_chars and buf:
                 parts.append(buf)
                 buf = ""
