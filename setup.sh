@@ -29,7 +29,7 @@ chmod 700 .secrets
 [[ -f .env ]] || cp .env.example .env
 [[ -f music/library.json ]] || echo "[]" > music/library.json
 
-if [[ "$(uname)" == "Darwin" ]]; then
+if [[ "$(uname)" == "Darwin" && "${INSTALL_LAUNCHD:-0}" == "1" ]]; then
   PLIST=~/Library/LaunchAgents/com.videostudio.analytics.plist
   sed "s#__ROOT__#${ROOT}#g" launchd/com.videostudio.analytics.plist > "$PLIST"
   launchctl unload "$PLIST" 2>/dev/null || true

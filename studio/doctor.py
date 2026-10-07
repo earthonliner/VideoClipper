@@ -1,15 +1,15 @@
 import shutil
 import subprocess
 
-from . import config
+from . import config, media
 
 
 def run() -> dict:
     checks = {}
     for binary in ("ffmpeg", "ffprobe"):
-        checks[binary] = bool(shutil.which(binary))
+        checks[binary] = bool(shutil.which(binary) or (config.ROOT / ".ffmpeg-env/bin" / binary).exists())
     if checks["ffmpeg"]:
-        filters = subprocess.run(["ffmpeg", "-hide_banner", "-filters"], capture_output=True, text=True).stdout
+        filters = subprocess.run([media.require_binary("ffmpeg"), "-hide_banner", "-filters"], capture_output=True, text=True).stdout
         checks["ffmpeg_libass(subtitles)"] = " subtitles " in filters
         checks["ffmpeg_drawtext"] = " drawtext " in filters
     checks["font"] = config.find_font() or False
