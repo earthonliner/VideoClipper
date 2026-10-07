@@ -1,0 +1,18 @@
+{
+  "title": "",
+  "voice": "zh-CN-YunxiNeural",
+  "voice_rate": "+5%",
+  "resolution": [1920, 1080],
+  "fps": 30,
+  "subtitles": { "burn": true, "max_chars": 18 },
+  "bgm": { "file": null, "volume": 0.15 },
+  "scenes": [
+    {
+      "id": "s01",
+      "narration": "",
+      "visual": { "type": "color", "color": "#101418", "query": "" },
+      "overlay_text": "",
+      "notes": ""
+    }
+  ]
+}

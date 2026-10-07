@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "video-studio"
+version = "0.1.0"
+description = "Cursor-driven YouTube video production agent: topic research, script, assets, TTS, render, publish, analytics."
+requires-python = ">=3.11"
+dependencies = [
+  "mcp>=2.3,<3",
+  "edge-tts>=7.2",
+  "pillow>=10",
+  "requests>=2.31",
+  "python-dotenv>=1.0",
+  "google-api-python-client>=2.130",
+  "google-auth-oauthlib>=1.2",
+]
+
+[project.optional-dependencies]
+mac = ["mlx-whisper>=0.4"]
+
+[project.scripts]
+studio = "studio.cli:main"
+
+[tool.setuptools]
+packages = ["studio"]

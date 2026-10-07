@@ -1,0 +1,21 @@
+{
+  "title": "",
+  "title_alternatives": [],
+  "description": "",
+  "tags": [],
+  "categoryId": "27",
+  "defaultLanguage": "zh-Hans",
+  "privacyStatus": "private",
+  "publishAt": null,
+  "madeForKids": false,
+  "containsSyntheticMedia": true,
+  "thumbnail": "thumbs/thumb-a.jpg",
+  "uploadCaptions": false,
+  "features": {
+    "topic_type": "",
+    "hook_type": "",
+    "length_bucket": "",
+    "thumb_style": "",
+    "title_pattern": ""
+  }
+}
