@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "video-studio": {
+      "command": "${workspaceFolder}/.venv/bin/python",
+      "args": ["-m", "studio.mcp_server"],
+      "env": {
+        "STUDIO_ROOT": "${workspaceFolder}"
+      }
+    }
+  }
+}
