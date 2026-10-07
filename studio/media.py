@@ -7,7 +7,8 @@ from pathlib import Path
 
 
 def require_binary(name: str) -> str:
-    path = shutil.which(name)
+    local = Path(__file__).resolve().parent.parent / ".ffmpeg-env" / "bin" / name
+    path = str(local) if local.exists() else shutil.which(name)
     if not path:
         raise RuntimeError(f"'{name}' not found on PATH; run ./setup.sh (brew install ffmpeg)")
     return path

@@ -108,7 +108,9 @@ def render(slug: str) -> dict:
     if subs_cfg.get("burn", True) and cues:
         style = subs_cfg.get("style", f"FontName={config.SUBTITLE_FONT_NAME},FontSize=18,PrimaryColour=&H00FFFFFF,"
                                        "OutlineColour=&H80000000,BorderStyle=1,Outline=1.2,Shadow=0,MarginV=40")
-        vf = f"subtitles=subs.srt:force_style='{style}'"
+        fonts = config.find_font()
+        fd = f":fontsdir='{Path(fonts).parent}'" if fonts else ""
+        vf = f"subtitles=subs.srt{fd}:force_style='{style}'"
 
     bgm = _bgm_path(board)
     loud = "loudnorm=I=-14:TP=-1.5:LRA=11"

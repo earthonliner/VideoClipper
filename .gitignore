@@ -9,3 +9,4 @@ music/**
 !music/README.md
 !music/library.json
 .DS_Store
+.ffmpeg-env/
