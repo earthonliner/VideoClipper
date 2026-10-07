@@ -76,6 +76,21 @@ def asset_register(slug: str, scene_id: str, file: str, source: str, license: st
 
 
 @server.tool()
+def music_search(query: str, provider: str = "incompetech", limit: int = 8, min_seconds: int = 120) -> list[dict]:
+    """Search free background music online. provider: incompetech (no key, CC BY 4.0) | jamendo (needs JAMENDO_CLIENT_ID,
+    only commercial-safe CC licenses). Query with mood words, e.g. 'epic dark documentary'."""
+    from . import music_sources
+    return music_sources.search_music(query, provider, limit, min_seconds)
+
+
+@server.tool()
+def music_download(item: dict, moods: list[str] | None = None) -> dict:
+    """Download one music_search result into music/ and add it to the library with license + attribution text."""
+    from . import music_sources
+    return music_sources.download_music(item, moods)
+
+
+@server.tool()
 def music_scan() -> dict:
     """Index new audio files dropped into music/ and list tracks still missing mood tags."""
     return assets.scan_music()

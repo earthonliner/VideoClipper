@@ -16,6 +16,7 @@ TEMPLATES_DIR = ROOT / "templates"
 
 PEXELS_API_KEY = os.environ.get("PEXELS_API_KEY", "")
 PIXABAY_API_KEY = os.environ.get("PIXABAY_API_KEY", "")
+JAMENDO_CLIENT_ID = os.environ.get("JAMENDO_CLIENT_ID", "")
 
 DEFAULT_VOICE = os.environ.get("DEFAULT_VOICE", "en-US-AndrewNeural")
 DEFAULT_RESOLUTION = tuple(int(x) for x in os.environ.get("DEFAULT_RESOLUTION", "1920x1080").split("x"))
